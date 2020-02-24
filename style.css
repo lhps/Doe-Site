@@ -181,27 +181,50 @@ section.form.hide{
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 600px) {
-
- 
-
+@media (max-width: 1000px) {
     .logo{
-        width: 250px;
+        width: 500px;
         margin: 70px 0px;
     }
 
     header h2, main h2 {
         margin-bottom: 70px;
-        font-size: 35px;
+        font-size: 60px;
     }
 
     header p{
-        font-size: 20px;
+        font-size: 40px;
     }
 
     header button{
-        width: 400px;
-        height: 50px;
+        width: 500px;
+        height: 100px;
+        font-size: 50px;
+    }
+
+    form input, form button {
+        width: 90%;
+        font-size: 40px;
+    
+        margin-bottom: 8px; 
+    
+        padding: 8px 16px;
+    
+        border-radius: 4px;
+        border: 1px #ffffff88 solid;
+    }
+    section h2{
+        font-size: 100px;
+    }
+    header, .form, main {
+        /* espaçamentos com margin*/
+        /* sentido horario começa cima e vai pra direita*/
+        /* se margin: top right bottom left*/
+        margin: 0 auto 70px;
+    
+        /*limites dos elementos na página*/
+        width: 100%;
+        max-width: 90%;
     }
 
 }
