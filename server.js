@@ -2,7 +2,7 @@ const express = require("express");
 const server = express();
 
 // configurar o servidor para apresentar arquivos estáticos
-server.use(express.static('public'))
+server.use(express.static(__dirname + "/public"))
 
 // habilitar body do formulario
 server.use(express.urlencoded({extended: true}))
@@ -32,7 +32,7 @@ server.get("/", (req, res) => {
         if (err) return res.send("Erro de banco de dados.")
 
         const donors = result.rows;
-        return res.render("index.html", { donors })
+        return res.render("index", { donors })
     })
 
 })
