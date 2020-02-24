@@ -274,4 +274,15 @@ section.form.hide{
         margin-top: -70px;
     }
     
+    body{
+        display: flex;
+        flex-direction: column;
+    
+        height: 100vh;
+    
+        /* FONTE */
+        font-family: 'Roboto', sans-serif;
+    
+        background-color: #f9f9f9;
+    }
 }

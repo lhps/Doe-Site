@@ -16,7 +16,7 @@
 
 <head>
     <title>Doe sangue! Doe vida</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link
      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
       rel="stylesheet">
@@ -27,7 +27,7 @@
     <header>
         <img
             class="logo"
-            src="logo.png"
+            src="/logo.png"
             alt="Imagem de DOE">
         <h2>A sua doação importa</h2>
         <p>Até 3 vidas com 1 doação</p>
@@ -62,22 +62,14 @@
         <h2>Últimos <span>doadores</span></h2>
 
         <section class="donors">
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Diego Fernandes</p>
-            </div>
-            <div class="donor">
-                <div class="blood">A+</div>
-                <p>Victor Milani</p>
-            </div>
-            <div class="donor">
-                <div class="blood">AB-</div>
-                <p>Pablo Lira</p>
-            </div>
-            <div class="donor">
-                <div class="blood">A-</div>
-                <p>Lucas Pinho</p>
-            </div>
+
+            {% for donor in donors %}
+                <div class="donor">
+                    <div class="blood">{{donor.blood}}</div>
+                    <p>{{donor.name}}</p>
+                </div>
+            {%endfor%}
+            
         </section>
     </main>
 
@@ -85,7 +77,7 @@
         Com ❤️ Lucas Pinho
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 
 </html>
