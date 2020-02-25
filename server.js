@@ -23,6 +23,8 @@ const config = {
     ssl: true
 };
 
+console.log(config)
+
 const db = new Pool(config);
 // configurar a conexão com o banco local
 // const db = new Pool({
