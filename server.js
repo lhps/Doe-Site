@@ -90,8 +90,6 @@ server.post("/", (req, res) => {
 
 
 
-var port = process.env.PORT || 8080
-
-server.listen(port, function() {
+server.listen(process.env.PORT || 3000, function() {
     console.log("iniciei o servidor.")
 });
