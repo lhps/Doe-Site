@@ -1,5 +1,9 @@
+// imports das libs
 const express = require("express");
 const server = express();
+//const Pool = require('pg').Pool;
+const Pool = require('pg-pool');
+const url = require('url');
 
 // configurar o servidor para apresentar arquivos estáticos
 server.use(express.static(__dirname + "/public"))
@@ -7,8 +11,20 @@ server.use(express.static(__dirname + "/public"))
 // habilitar body do formulario
 server.use(express.urlencoded({extended: true}))
 
-// configurar a conexão com o banco
-const Pool = require('pg').Pool;
+// configurando o banco de dados no heroku
+const params = url.parse(process.env.DATABASE_URL);
+const auth = params.auth.split(':');
+const config = {
+    user: auth[0],
+    password: auth[1],
+    host: params.hostname,
+    port: params.port,
+    database: params.pathname.split('/')[1],
+    ssl: true
+};
+
+const db = new Pool(config);
+// configurar a conexão com o banco local
 // const db = new Pool({
 //     user: 'postgres',
 //     password: '0000',
@@ -16,13 +32,13 @@ const Pool = require('pg').Pool;
 //     port: 5432,
 //     database: 'doe',
 // })
-const db = new Pool({
-    user: 'harxizrvdmfonl',
-    password: '5119d3a8ce65579dcb2da0028d2460847c3e3e73439aac0b18bad4d1c9cf34ed',
-    host: 'ec2-52-202-185-87.compute-1.amazonaws.com',
-    port: 5432,
-    database: 'd5sktr1qeo95qu',
-})
+// const db = new Pool({
+//     user: 'harxizrvdmfonl',
+//     password: '5119d3a8ce65579dcb2da0028d2460847c3e3e73439aac0b18bad4d1c9cf34ed',
+//     host: 'ec2-52-202-185-87.compute-1.amazonaws.com',
+//     port: 5432,
+//     database: 'd5sktr1qeo95qu',
+// })
 
 // configurando a template engine
 const nunjucks = require("nunjucks");
@@ -56,7 +72,7 @@ server.post("/", (req, res) => {
 
     // coloco valores dentro do banco de dados.
     const insertQuery = `INSERT INTO donors ("name", "email", "blood")
-    VALUES ('Lucas', 'teste@gmail.com', 'A+');`;
+    VALUES ('teste', 'teste@te.com', 'A+');`;
     // const insertQuery = `
     //     INSERT INTO donors ("name", "email", "blood")
     //     VALUES ($1, $2, $3)`;
