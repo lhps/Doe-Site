@@ -18,8 +18,8 @@ const Pool = require('pg').Pool;
 // })
 const db = new Pool({
     user: 'harxizrvdmfonl',
-    password: '0000',
-    host: '5119d3a8ce65579dcb2da0028d2460847c3e3e73439aac0b18bad4d1c9cf34ed',
+    password: '5119d3a8ce65579dcb2da0028d2460847c3e3e73439aac0b18bad4d1c9cf34ed',
+    host: 'ec2-52-202-185-87.compute-1.amazonaws.com',
     port: 5432,
     database: 'd5sktr1qeo95qu',
 })
