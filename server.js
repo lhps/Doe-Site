@@ -58,7 +58,7 @@ server.get("/", (req, res) => {
         if (err) return res.send("Erro de banco de dados.")
 
         const donors = result.rows;
-        return res.render("index", { donors })
+        return res.render("index.html", { donors })
     })
 
 })
