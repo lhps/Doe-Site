@@ -73,11 +73,11 @@ server.post("/", (req, res) => {
     }
 
     // coloco valores dentro do banco de dados.
-    const insertQuery = `INSERT INTO donors ("name", "email", "blood")
-    VALUES ('teste', 'teste@te.com', 'A+');`;
-    // const insertQuery = `
-    //     INSERT INTO donors ("name", "email", "blood")
-    //     VALUES ($1, $2, $3)`;
+    // const insertQuery = `INSERT INTO donors ("name", "email", "blood")
+    // VALUES ('teste', 'teste@te.com', 'A+');`;
+    const insertQuery = `
+        INSERT INTO donors ("name", "email", "blood")
+        VALUES ($1, $2, $3)`;
     
     const values = [name, email, blood];
 
