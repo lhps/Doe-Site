@@ -33,15 +33,15 @@ nunjucks.configure("./",{
 
 
 server.get("/", (req, res) => {
-    const selectDonors = "SELECT * FROM doe.donors";
-    return res.render("index")
+    const selectDonors = "SELECT * FROM donors";
 
-    // db.query(selectDonors, (err, result) =>{
-    //     if (err) return res.send("Erro de banco de dados.")
 
-    //     const donors = result.rows;
-    //     return res.render("index", { donors })
-    // })
+    db.query(selectDonors, (err, result) =>{
+        if (err) return res.send("Erro de banco de dados.")
+
+        const donors = result.rows;
+        return res.render("index", { donors })
+    })
 
 })
 
@@ -55,7 +55,7 @@ server.post("/", (req, res) => {
     }
 
     // coloco valores dentro do banco de dados.
-    const insertQuery = `INSERT INTO doe.donors ("name", "email", "blood")
+    const insertQuery = `INSERT INTO donors ("name", "email", "blood")
     VALUES ('Lucas', 'teste@gmail.com', 'A+');`;
     // const insertQuery = `
     //     INSERT INTO donors ("name", "email", "blood")
