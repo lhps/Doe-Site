@@ -21,7 +21,7 @@ const db = new Pool({
     password: '0000',
     host: '5119d3a8ce65579dcb2da0028d2460847c3e3e73439aac0b18bad4d1c9cf34ed',
     port: 5432,
-    database: 'doe',
+    database: 'd5sktr1qeo95qu',
 })
 
 // configurando a template engine
@@ -33,7 +33,7 @@ nunjucks.configure("./",{
 
 
 server.get("/", (req, res) => {
-    const selectDonors = "SELECT * FROM donors";
+    const selectDonors = "SELECT * FROM doe.donors";
 
     db.query(selectDonors, (err, result) =>{
         if (err) return res.send("Erro de banco de dados.")
@@ -54,9 +54,11 @@ server.post("/", (req, res) => {
     }
 
     // coloco valores dentro do banco de dados.
-    const insertQuery = `
-        INSERT INTO donors ("name", "email", "blood")
-        VALUES ($1, $2, $3)`;
+    const insertQuery = `INSERT INTO doe.donors ("name", "email", "blood")
+    VALUES ('Lucas', 'teste@gmail.com', 'A+');`;
+    // const insertQuery = `
+    //     INSERT INTO donors ("name", "email", "blood")
+    //     VALUES ($1, $2, $3)`;
     
     const values = [name, email, blood];
 
