@@ -34,13 +34,14 @@ nunjucks.configure("./",{
 
 server.get("/", (req, res) => {
     const selectDonors = "SELECT * FROM doe.donors";
+    return res.render("index")
 
-    db.query(selectDonors, (err, result) =>{
-        if (err) return res.send("Erro de banco de dados.")
+    // db.query(selectDonors, (err, result) =>{
+    //     if (err) return res.send("Erro de banco de dados.")
 
-        const donors = result.rows;
-        return res.render("index", { donors })
-    })
+    //     const donors = result.rows;
+    //     return res.render("index", { donors })
+    // })
 
 })
 
