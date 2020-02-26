@@ -197,6 +197,9 @@ section.form.hide{
         font-size: 40px;
     }
 
+    
+
+
     header button{
         width: 500px;
         height: 100px;
@@ -262,8 +265,13 @@ section.form.hide{
     
     .donor p {
         margin-top: 60px;
-        font-size: 14px;
+        font-size: 20px;
     }
+
+    section.donors{
+        margin-top: 150px;
+    }
+
     section.form {
         transition: all 300ms;
     }
@@ -275,6 +283,10 @@ section.form.hide{
         margin-top: -70px;
     }
     
+    footer {
+        font-size: 20px;
+    }
+
     body{
         display: flex;
         flex-direction: column;
