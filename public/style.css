@@ -251,8 +251,8 @@ section.form.hide{
         content: "";
         background-color: #ff4f4f11;
     
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
     
         position: absolute;
     
@@ -264,8 +264,8 @@ section.form.hide{
     }
     
     .donor p {
-        margin-top: 60px;
-        font-size: 20px;
+        margin-top: 10px;
+        font-size: 25px;
     }
 
     section.donors{
