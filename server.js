@@ -2,9 +2,9 @@
 const express = require("express");
 const server = express();
 // Dev
-const Pool = require('pg').Pool;
+//const Pool = require('pg').Pool;
 // Prod
-//const Pool = require('pg-pool');
+const Pool = require('pg-pool');
 const url = require('url');
 
 // configurar o servidor para apresentar arquivos estáticos
@@ -14,28 +14,28 @@ server.use(express.static(__dirname + "/public"))
 server.use(express.urlencoded({extended: true}))
 
 // configurando o banco de dados no heroku
-// const params = url.parse(process.env.DATABASE_URL);
-// const auth = params.auth.split(':');
+const params = url.parse(process.env.DATABASE_URL);
+const auth = params.auth.split(':');
 
-// const config = {
-//     user: auth[0],
-//     password: auth[1],
-//     host: params.hostname,
-//     port: params.port,
-//     database: params.pathname.split('/')[1],
-//     ssl: true
-// };
-// const db = new Pool(config);
+const config = {
+    user: auth[0],
+    password: auth[1],
+    host: params.hostname,
+    port: params.port,
+    database: params.pathname.split('/')[1],
+    ssl: true
+};
+const db = new Pool(config);
 
 
 // configurar a conexão com o banco local
-const db = new Pool({
-    user: 'postgres',
-    password: '0000',
-    host: 'localhost',
-    port: 5432,
-    database: 'doe',
-})
+// const db = new Pool({
+//     user: 'postgres',
+//     password: '0000',
+//     host: 'localhost',
+//     port: 5432,
+//     database: 'doe',
+// })
 
 
 // configurando a template engine
