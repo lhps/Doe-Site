@@ -248,6 +248,7 @@ section.form.hide{
     }
     
     .blood::before{
+        margin-top: 30px;
         content: "";
         background-color: #ff4f4f11;
     
